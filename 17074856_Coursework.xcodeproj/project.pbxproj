@@ -14,6 +14,10 @@
 		AA147CEA2194464400F3D810 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA147CE82194464400F3D810 /* LaunchScreen.storyboard */; };
 		AA147CF52194464400F3D810 /* _7074856_CourseworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA147CF42194464400F3D810 /* _7074856_CourseworkTests.swift */; };
 		AA147D002194464400F3D810 /* _7074856_CourseworkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA147CFF2194464400F3D810 /* _7074856_CourseworkUITests.swift */; };
+		AA973FCF21A46B0A00D3DC81 /* fog.png in Resources */ = {isa = PBXBuildFile; fileRef = AA973FCE21A46B0A00D3DC81 /* fog.png */; };
+		AAE48E882198AA4900C2F4BC /* up.png in Resources */ = {isa = PBXBuildFile; fileRef = AAE48E852198AA4900C2F4BC /* up.png */; };
+		AAE48E892198AA4900C2F4BC /* field.png in Resources */ = {isa = PBXBuildFile; fileRef = AAE48E862198AA4900C2F4BC /* field.png */; };
+		AAE48E8A2198AA4900C2F4BC /* rocks.png in Resources */ = {isa = PBXBuildFile; fileRef = AAE48E872198AA4900C2F4BC /* rocks.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		AA147CFB2194464400F3D810 /* 17074856_CourseworkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 17074856_CourseworkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA147CFF2194464400F3D810 /* _7074856_CourseworkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _7074856_CourseworkUITests.swift; sourceTree = "<group>"; };
 		AA147D012194464400F3D810 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA973FCE21A46B0A00D3DC81 /* fog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fog.png; sourceTree = "<group>"; };
+		AAE48E852198AA4900C2F4BC /* up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = up.png; sourceTree = "<group>"; };
+		AAE48E862198AA4900C2F4BC /* field.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = field.png; sourceTree = "<group>"; };
+		AAE48E872198AA4900C2F4BC /* rocks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rocks.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +107,11 @@
 			children = (
 				AA147CDF2194464300F3D810 /* AppDelegate.swift */,
 				AA147CE12194464300F3D810 /* ViewController.swift */,
+				AA973FCE21A46B0A00D3DC81 /* fog.png */,
 				AA147CE32194464300F3D810 /* Main.storyboard */,
+				AAE48E862198AA4900C2F4BC /* field.png */,
+				AAE48E872198AA4900C2F4BC /* rocks.png */,
+				AAE48E852198AA4900C2F4BC /* up.png */,
 				AA147CE62194464400F3D810 /* Assets.xcassets */,
 				AA147CE82194464400F3D810 /* LaunchScreen.storyboard */,
 				AA147CEB2194464400F3D810 /* Info.plist */,
@@ -229,9 +241,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAE48E8A2198AA4900C2F4BC /* rocks.png in Resources */,
 				AA147CEA2194464400F3D810 /* LaunchScreen.storyboard in Resources */,
+				AAE48E892198AA4900C2F4BC /* field.png in Resources */,
 				AA147CE72194464400F3D810 /* Assets.xcassets in Resources */,
+				AAE48E882198AA4900C2F4BC /* up.png in Resources */,
 				AA147CE52194464300F3D810 /* Main.storyboard in Resources */,
+				AA973FCF21A46B0A00D3DC81 /* fog.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
