@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var main: DraggedImageView!
     @IBOutlet weak var fog: UIImageView!
     @IBOutlet weak var field: UIImageView!
     @IBOutlet weak var field2: UIImageView!
@@ -67,6 +68,29 @@ class ViewController: UIViewController {
         moveBackground()
         moveForeground()
         moveWeather()
+        
+        var imageArray: [UIImage]!
+        
+        imageArray = [UIImage(named: "f1.png")!,
+                      UIImage(named: "f2.png")!,
+                      UIImage(named: "f3.png")!,
+                      UIImage(named: "f4.png")!,
+                      UIImage(named: "f5.png")!,
+                      UIImage(named: "f6.png")!,
+                      UIImage(named: "f7.png")!,
+                      UIImage(named: "f8.png")!,
+                      UIImage(named: "f9.png")!,
+                      UIImage(named: "f10.png")!,
+                      UIImage(named: "f9.png")!,
+                      UIImage(named: "f8.png")!,
+                      UIImage(named: "f7.png")!,
+                      UIImage(named: "f6.png")!,
+                      UIImage(named: "f5.png")!,
+                      UIImage(named: "f4.png")!,
+                      UIImage(named: "f3.png")!,
+                      UIImage(named: "f2.png")!]
+        
+        main.image = UIImage.animatedImage(with: imageArray, duration: 1)
        
     }
 

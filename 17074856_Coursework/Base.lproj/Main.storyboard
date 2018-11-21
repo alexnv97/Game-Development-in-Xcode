@@ -45,6 +45,10 @@
                                 <rect key="frame" x="1772" y="225" width="1773" height="189"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </imageView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="f1.png" translatesAutoresizingMaskIntoConstraints="NO" id="x3Y-Fs-DYf" customClass="DraggedImageView" customModule="_7074856_Coursework" customModuleProvider="target">
+                                <rect key="frame" x="20" y="73" width="91" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -55,6 +59,7 @@
                         <outlet property="field" destination="3h5-wn-VLr" id="DMO-P7-xeg"/>
                         <outlet property="field2" destination="Sxi-IJ-YJq" id="Nme-qX-CNC"/>
                         <outlet property="fog" destination="jdz-ur-sJX" id="Hc7-eg-mFe"/>
+                        <outlet property="main" destination="x3Y-Fs-DYf" id="w4Z-Jq-JPh"/>
                         <outlet property="up" destination="tDV-I2-M8d" id="ASz-hC-kpw"/>
                         <outlet property="up2" destination="4lO-Bn-cBf" id="pEi-kg-vwV"/>
                     </connections>
@@ -65,6 +70,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="f1.png" width="502" height="716"/>
         <image name="field.png" width="4201" height="447"/>
         <image name="fog.png" width="400" height="225"/>
         <image name="rocks.png" width="4200" height="980"/>
