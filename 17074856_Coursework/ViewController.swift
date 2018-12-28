@@ -8,7 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+protocol subViewDelegate {
+    func changeBoundaries()
+}
+class ViewController: UIViewController, subViewDelegate {
+    
+    
+    var dynamicAnimator: UIDynamicAnimator!
+    var dynamicItemBehaviour: UIDynamicItemBehavior!
+    var collisionBehaviour: UICollisionBehavior!
     
     @IBOutlet weak var main: DraggedImageView!
     @IBOutlet weak var fog: UIImageView!
@@ -62,6 +70,42 @@ class ViewController: UIViewController {
             }, completion: nil)
         })
     }
+    
+    func createEnemies(batArray: [UIImage]){
+        
+        let batView = UIImageView(image: nil)
+        
+        batView.image = UIImage.animatedImage(with: batArray, duration: 0.5)
+        
+        let random = CGFloat.random(in: 0 ... self.view.frame.height)
+        batView.frame = CGRect(x: self.view.frame.width, y:random, width: 90, height: 80)
+        self.view.addSubview(batView)
+        
+        let timer = DispatchTime.now() + 2
+        
+        dynamicAnimator = UIDynamicAnimator(referenceView: self.view)
+        dynamicItemBehaviour = UIDynamicItemBehavior(items: [batView])
+        self.dynamicItemBehaviour.addLinearVelocity(CGPoint(x: -300, y: 0), for: batView)
+        dynamicAnimator.addBehavior(dynamicItemBehaviour)
+        
+        
+        collisionBehaviour = UICollisionBehavior(items: [batView])
+        /*collisionBehaviour.translatesReferenceBoundsIntoBoundary = true
+       */
+        
+        collisionBehaviour.addBoundary(withIdentifier: "enemy" as NSCopying, for: UIBezierPath(rect:main.frame))
+        //collisionBehaviour.addBoundary(withIdentifier: "main" as NSCopying, for: UIBezierPath(rect: batView.frame))
+        
+        //collisionBehaviour.addItem(batView)
+        //collisionBehaviour.collisionMode = .boundaries
+        dynamicAnimator.addBehavior(collisionBehaviour)
+        
+        DispatchQueue.main.asyncAfter(deadline: timer){
+            self.createEnemies(batArray: batArray)
+        }
+
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -69,8 +113,15 @@ class ViewController: UIViewController {
         moveForeground()
         moveWeather()
         
-        var imageArray: [UIImage]!
+        main.myDelegate = self
         
+        var imageArray: [UIImage]!
+        var batArray: [UIImage]!
+        batArray = [UIImage(named: "b1.png")!,
+                    UIImage(named: "b2.png")!,
+                    UIImage(named: "b3.png")!,
+                    UIImage(named: "b2.png")!]
+ 
         imageArray = [UIImage(named: "f1.png")!,
                       UIImage(named: "f2.png")!,
                       UIImage(named: "f3.png")!,
@@ -90,8 +141,16 @@ class ViewController: UIViewController {
                       UIImage(named: "f3.png")!,
                       UIImage(named: "f2.png")!]
         
-        main.image = UIImage.animatedImage(with: imageArray, duration: 1)
        
+        
+        main.image = UIImage.animatedImage(with: imageArray, duration: 1)
+        
+        createEnemies(batArray: batArray)
+    }
+    
+    func changeBoundaries() {
+        collisionBehaviour.removeAllBoundaries()
+        collisionBehaviour.addBoundary(withIdentifier: "enemy" as NSCopying, for: UIBezierPath(rect: main.frame))
     }
 
 

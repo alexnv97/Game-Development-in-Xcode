@@ -46,7 +46,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </imageView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="f1.png" translatesAutoresizingMaskIntoConstraints="NO" id="x3Y-Fs-DYf" customClass="DraggedImageView" customModule="_7074856_Coursework" customModuleProvider="target">
-                                <rect key="frame" x="20" y="73" width="91" height="128"/>
+                                <rect key="frame" x="229" y="114" width="91" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
