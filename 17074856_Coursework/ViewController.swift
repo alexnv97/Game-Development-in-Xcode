@@ -75,28 +75,27 @@ class ViewController: UIViewController, subViewDelegate {
         
         let batView = UIImageView(image: nil)
         
-        batView.image = UIImage.animatedImage(with: batArray, duration: 0.5)
+        batView.image = UIImage.animatedImage(with: batArray, duration: 1)
         
         let random = CGFloat.random(in: 0 ... self.view.frame.height)
-        batView.frame = CGRect(x: self.view.frame.width, y:random, width: 90, height: 80)
+        batView.frame = CGRect(x: UIScreen.main.bounds.width, y:random, width: 60, height: 50)
         self.view.addSubview(batView)
         
-        let timer = DispatchTime.now() + 2
+        let timer = DispatchTime.now() + 5
         
-        dynamicAnimator = UIDynamicAnimator(referenceView: self.view)
-        dynamicItemBehaviour = UIDynamicItemBehavior(items: [batView])
-        self.dynamicItemBehaviour.addLinearVelocity(CGPoint(x: -300, y: 0), for: batView)
+        dynamicItemBehaviour.addItem(batView)
+        dynamicItemBehaviour.addLinearVelocity(CGPoint(x: -110, y: 0), for: batView)
         dynamicAnimator.addBehavior(dynamicItemBehaviour)
         
         
-        collisionBehaviour = UICollisionBehavior(items: [batView])
-        /*collisionBehaviour.translatesReferenceBoundsIntoBoundary = true
-       */
+        
+        //collisionBehaviour.translatesReferenceBoundsIntoBoundary = true
+ 
         
         collisionBehaviour.addBoundary(withIdentifier: "enemy" as NSCopying, for: UIBezierPath(rect:main.frame))
-        //collisionBehaviour.addBoundary(withIdentifier: "main" as NSCopying, for: UIBezierPath(rect: batView.frame))
         
-        //collisionBehaviour.addItem(batView)
+        
+        collisionBehaviour.addItem(batView)
         //collisionBehaviour.collisionMode = .boundaries
         dynamicAnimator.addBehavior(collisionBehaviour)
         
@@ -108,12 +107,29 @@ class ViewController: UIViewController, subViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        main.myDelegate = self
+        
         moveBackground()
         moveForeground()
         moveWeather()
         
-        main.myDelegate = self
+        let when = DispatchTime.now() + 20
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            print("TIME'S UP")
+            self.main.isHidden = true
+            self.background.isHidden = true
+            self.background2.isHidden = true
+            self.field.isHidden = true
+            self.field2.isHidden = true
+            self.up.isHidden = true
+            self.up2.isHidden = true
+        }
+       
+        
+        dynamicAnimator = UIDynamicAnimator(referenceView: self.view)
+        dynamicItemBehaviour = UIDynamicItemBehavior(items: [])
+        collisionBehaviour = UICollisionBehavior(items: [])
         
         var imageArray: [UIImage]!
         var batArray: [UIImage]!

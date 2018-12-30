@@ -25,7 +25,7 @@ class DraggedImageView: UIImageView {
         
         self.center = CGPoint(x: self.center.x+dx, y: self.center.y+dy)*/
         
-        self.myDelegate?.changeSomething()
+        self.myDelegate?.changeBoundaries()
         
         let currentLocation = touches.first?.location(in: self)
         let dx = currentLocation!.x - startLocation!.x
