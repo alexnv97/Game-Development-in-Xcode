@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina5_5" orientation="landscape">
+    <device id="retina3_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -14,11 +14,15 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="_7074856_Coursework" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gameover.png" translatesAutoresizingMaskIntoConstraints="NO" id="iu7-AB-MB2">
+                                <rect key="frame" x="-111" y="0.0" width="619" height="459"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="rocks.png" translatesAutoresizingMaskIntoConstraints="NO" id="INg-Vg-iH6">
-                                <rect key="frame" x="0.0" y="0.0" width="1773" height="414"/>
+                                <rect key="frame" x="0.0" y="-94" width="1773" height="414"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fog.png" translatesAutoresizingMaskIntoConstraints="NO" id="jdz-ur-sJX">
@@ -30,11 +34,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="field.png" translatesAutoresizingMaskIntoConstraints="NO" id="3h5-wn-VLr">
-                                <rect key="frame" x="0.0" y="225" width="1773" height="189"/>
+                                <rect key="frame" x="0.0" y="131" width="1773" height="189"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="rocks.png" translatesAutoresizingMaskIntoConstraints="NO" id="qhs-5P-nQv">
-                                <rect key="frame" x="1772" y="0.0" width="1773" height="414"/>
+                                <rect key="frame" x="1772" y="-94" width="1773" height="414"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="up.png" translatesAutoresizingMaskIntoConstraints="NO" id="4lO-Bn-cBf">
@@ -42,13 +46,42 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="field.png" translatesAutoresizingMaskIntoConstraints="NO" id="Sxi-IJ-YJq">
-                                <rect key="frame" x="1772" y="225" width="1773" height="189"/>
+                                <rect key="frame" x="1772" y="131" width="1773" height="189"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </imageView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="f1.png" translatesAutoresizingMaskIntoConstraints="NO" id="x3Y-Fs-DYf" customClass="DraggedImageView" customModule="_7074856_Coursework" customModuleProvider="target">
                                 <rect key="frame" x="49" y="54" width="70" height="99"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQC-0P-Buk">
+                                <rect key="frame" x="20" y="10" width="47" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="highlightedColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3p1-P6-99n">
+                                <rect key="frame" x="75" y="10" width="49" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81i-Rl-5Wa">
+                                <rect key="frame" x="385" y="137" width="202" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQH-O8-WXm">
+                                <rect key="frame" x="191" y="165" width="130" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="replay.png"/>
+                                <connections>
+                                    <action selector="replayButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5V7-VN-lyw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -58,21 +91,27 @@
                         <outlet property="background2" destination="qhs-5P-nQv" id="vcr-xa-wm5"/>
                         <outlet property="field" destination="3h5-wn-VLr" id="DMO-P7-xeg"/>
                         <outlet property="field2" destination="Sxi-IJ-YJq" id="Nme-qX-CNC"/>
+                        <outlet property="finalScoreLabel" destination="81i-Rl-5Wa" id="4SM-V0-iIr"/>
                         <outlet property="fog" destination="jdz-ur-sJX" id="Hc7-eg-mFe"/>
+                        <outlet property="gameOverScreen" destination="iu7-AB-MB2" id="VAG-Fh-xtQ"/>
                         <outlet property="main" destination="x3Y-Fs-DYf" id="w4Z-Jq-JPh"/>
+                        <outlet property="replayBut" destination="jQH-O8-WXm" id="xTh-74-VAg"/>
+                        <outlet property="scoreLabel" destination="3p1-P6-99n" id="DrW-NI-H5O"/>
                         <outlet property="up" destination="tDV-I2-M8d" id="ASz-hC-kpw"/>
                         <outlet property="up2" destination="4lO-Bn-cBf" id="pEi-kg-vwV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="27.717391304347828" y="44.927536231884062"/>
+            <point key="canvasLocation" x="25.862068965517242" y="42.399999999999999"/>
         </scene>
     </scenes>
     <resources>
         <image name="f1.png" width="502" height="716"/>
         <image name="field.png" width="4201" height="447"/>
         <image name="fog.png" width="400" height="225"/>
+        <image name="gameover.png" width="1170" height="631"/>
+        <image name="replay.png" width="152" height="69"/>
         <image name="rocks.png" width="4200" height="980"/>
         <image name="up.png" width="4201" height="603"/>
     </resources>
