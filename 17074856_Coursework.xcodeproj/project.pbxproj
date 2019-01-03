@@ -22,6 +22,13 @@
 		AA147CEA2194464400F3D810 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA147CE82194464400F3D810 /* LaunchScreen.storyboard */; };
 		AA147CF52194464400F3D810 /* _7074856_CourseworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA147CF42194464400F3D810 /* _7074856_CourseworkTests.swift */; };
 		AA147D002194464400F3D810 /* _7074856_CourseworkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA147CFF2194464400F3D810 /* _7074856_CourseworkUITests.swift */; };
+		AA284ADD21DE189F00EB88FE /* frontFluvio.png in Resources */ = {isa = PBXBuildFile; fileRef = AA284ADC21DE189F00EB88FE /* frontFluvio.png */; };
+		AA284AE021DE1C9400EB88FE /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = AA284ADE21DE1C9300EB88FE /* logo.png */; };
+		AA284AE121DE1C9400EB88FE /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = AA284ADF21DE1C9300EB88FE /* play.png */; };
+		AA284AE621DE274900EB88FE /* hit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AA284AE521DE274900EB88FE /* hit.mp3 */; };
+		AA284AED21DE2C6F00EB88FE /* menuBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = AA284AEB21DE2C6F00EB88FE /* menuBackground.png */; };
+		AA284AEE21DE2C6F00EB88FE /* frontbat.png in Resources */ = {isa = PBXBuildFile; fileRef = AA284AEC21DE2C6F00EB88FE /* frontbat.png */; };
+		AA284AF021DE2FD400EB88FE /* menuMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AA284AEF21DE2FD400EB88FE /* menuMusic.mp3 */; };
 		AA9532F821DBB0200083E7A7 /* deadFluvio.png in Resources */ = {isa = PBXBuildFile; fileRef = AA9532F721DBB0200083E7A7 /* deadFluvio.png */; };
 		AA9532FA21DBDB070083E7A7 /* mainTheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AA9532F921DBDB070083E7A7 /* mainTheme.mp3 */; };
 		AA9532FC21DBDFC50083E7A7 /* coin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AA9532FB21DBDFC50083E7A7 /* coin.mp3 */; };
@@ -87,6 +94,13 @@
 		AA147CFB2194464400F3D810 /* 17074856_CourseworkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 17074856_CourseworkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA147CFF2194464400F3D810 /* _7074856_CourseworkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _7074856_CourseworkUITests.swift; sourceTree = "<group>"; };
 		AA147D012194464400F3D810 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA284ADC21DE189F00EB88FE /* frontFluvio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frontFluvio.png; sourceTree = "<group>"; };
+		AA284ADE21DE1C9300EB88FE /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		AA284ADF21DE1C9300EB88FE /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		AA284AE521DE274900EB88FE /* hit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hit.mp3; sourceTree = "<group>"; };
+		AA284AEB21DE2C6F00EB88FE /* menuBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuBackground.png; sourceTree = "<group>"; };
+		AA284AEC21DE2C6F00EB88FE /* frontbat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frontbat.png; sourceTree = "<group>"; };
+		AA284AEF21DE2FD400EB88FE /* menuMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = menuMusic.mp3; sourceTree = "<group>"; };
 		AA9532F721DBB0200083E7A7 /* deadFluvio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deadFluvio.png; sourceTree = "<group>"; };
 		AA9532F921DBDB070083E7A7 /* mainTheme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mainTheme.mp3; sourceTree = "<group>"; };
 		AA9532FB21DBDFC50083E7A7 /* coin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coin.mp3; sourceTree = "<group>"; };
@@ -163,39 +177,20 @@
 			children = (
 				AA147CDF2194464300F3D810 /* AppDelegate.swift */,
 				AA147CE12194464300F3D810 /* ViewController.swift */,
-				AA9532FB21DBDFC50083E7A7 /* coin.mp3 */,
-				AA9532F921DBDB070083E7A7 /* mainTheme.mp3 */,
-				AA9532F721DBB0200083E7A7 /* deadFluvio.png */,
-				AA137BC621DAA40D005A9FCB /* coin2.png */,
-				AA137BC221DAA40C005A9FCB /* coin3.png */,
-				AA137BC421DAA40C005A9FCB /* coin4.png */,
-				AA137BC821DAA40D005A9FCB /* coin5.png */,
-				AA137BC521DAA40D005A9FCB /* coin6.png */,
-				AA137BC721DAA40D005A9FCB /* coin7.png */,
-				AA137BC321DAA40C005A9FCB /* coin8.png */,
-				AA137BC021DA9FD4005A9FCB /* coin.png */,
-				AAA285AF21D7B726003A9767 /* gameover.png */,
-				AAA285B021D7B726003A9767 /* menu.png */,
-				AAA285AE21D7B726003A9767 /* replay.png */,
-				AAAB3B4521A7274A00B7F11A /* b1.png */,
-				AAAB3B4421A7274A00B7F11A /* b2.png */,
-				AAAB3B4621A7274A00B7F11A /* b3.png */,
-				AA973FCE21A46B0A00D3DC81 /* fog.png */,
+				AA284AEB21DE2C6F00EB88FE /* menuBackground.png */,
+				AA284AEC21DE2C6F00EB88FE /* frontbat.png */,
+				AA284ADE21DE1C9300EB88FE /* logo.png */,
+				AA284ADF21DE1C9300EB88FE /* play.png */,
+				AA284ADC21DE189F00EB88FE /* frontFluvio.png */,
+				AA284AE321DE26C000EB88FE /* Game Over Screen */,
+				AA284AE221DE26A000EB88FE /* Menu Screen */,
+				AA284AE421DE26E500EB88FE /* Sounds */,
+				AA284AEA21DE279F00EB88FE /* Objects */,
+				AA284AE821DE277300EB88FE /* Fluvio */,
+				AA284AE921DE279100EB88FE /* Enemies */,
+				AA284AE721DE275500EB88FE /* Stage */,
 				AA973FE421A46F3D00D3DC81 /* DraggedImageView.swift */,
 				AA147CE32194464300F3D810 /* Main.storyboard */,
-				AA973FD121A46EA200D3DC81 /* f1.png */,
-				AA973FD021A46EA200D3DC81 /* f2.png */,
-				AA973FD221A46EA200D3DC81 /* f3.png */,
-				AA973FD321A46EA200D3DC81 /* f4.png */,
-				AA973FD821A46EA300D3DC81 /* f5.png */,
-				AA973FD621A46EA200D3DC81 /* f6.png */,
-				AA973FD421A46EA200D3DC81 /* f7.png */,
-				AA973FD721A46EA200D3DC81 /* f8.png */,
-				AA973FD521A46EA200D3DC81 /* f9.png */,
-				AA973FD921A46EA300D3DC81 /* f10.png */,
-				AAE48E862198AA4900C2F4BC /* field.png */,
-				AAE48E872198AA4900C2F4BC /* rocks.png */,
-				AAE48E852198AA4900C2F4BC /* up.png */,
 				AA147CE62194464400F3D810 /* Assets.xcassets */,
 				AA147CE82194464400F3D810 /* LaunchScreen.storyboard */,
 				AA147CEB2194464400F3D810 /* Info.plist */,
@@ -219,6 +214,88 @@
 				AA147D012194464400F3D810 /* Info.plist */,
 			);
 			path = 17074856_CourseworkUITests;
+			sourceTree = "<group>";
+		};
+		AA284AE221DE26A000EB88FE /* Menu Screen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Menu Screen";
+			sourceTree = "<group>";
+		};
+		AA284AE321DE26C000EB88FE /* Game Over Screen */ = {
+			isa = PBXGroup;
+			children = (
+				AAA285B021D7B726003A9767 /* menu.png */,
+				AAA285AF21D7B726003A9767 /* gameover.png */,
+				AAA285AE21D7B726003A9767 /* replay.png */,
+			);
+			path = "Game Over Screen";
+			sourceTree = "<group>";
+		};
+		AA284AE421DE26E500EB88FE /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				AA284AEF21DE2FD400EB88FE /* menuMusic.mp3 */,
+				AA284AE521DE274900EB88FE /* hit.mp3 */,
+				AA9532FB21DBDFC50083E7A7 /* coin.mp3 */,
+				AA9532F921DBDB070083E7A7 /* mainTheme.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		AA284AE721DE275500EB88FE /* Stage */ = {
+			isa = PBXGroup;
+			children = (
+				AA973FCE21A46B0A00D3DC81 /* fog.png */,
+				AAE48E862198AA4900C2F4BC /* field.png */,
+				AAE48E872198AA4900C2F4BC /* rocks.png */,
+				AAE48E852198AA4900C2F4BC /* up.png */,
+			);
+			path = Stage;
+			sourceTree = "<group>";
+		};
+		AA284AE821DE277300EB88FE /* Fluvio */ = {
+			isa = PBXGroup;
+			children = (
+				AA9532F721DBB0200083E7A7 /* deadFluvio.png */,
+				AA973FD121A46EA200D3DC81 /* f1.png */,
+				AA973FD021A46EA200D3DC81 /* f2.png */,
+				AA973FD221A46EA200D3DC81 /* f3.png */,
+				AA973FD321A46EA200D3DC81 /* f4.png */,
+				AA973FD821A46EA300D3DC81 /* f5.png */,
+				AA973FD621A46EA200D3DC81 /* f6.png */,
+				AA973FD421A46EA200D3DC81 /* f7.png */,
+				AA973FD721A46EA200D3DC81 /* f8.png */,
+				AA973FD521A46EA200D3DC81 /* f9.png */,
+				AA973FD921A46EA300D3DC81 /* f10.png */,
+			);
+			path = Fluvio;
+			sourceTree = "<group>";
+		};
+		AA284AE921DE279100EB88FE /* Enemies */ = {
+			isa = PBXGroup;
+			children = (
+				AAAB3B4521A7274A00B7F11A /* b1.png */,
+				AAAB3B4421A7274A00B7F11A /* b2.png */,
+				AAAB3B4621A7274A00B7F11A /* b3.png */,
+			);
+			path = Enemies;
+			sourceTree = "<group>";
+		};
+		AA284AEA21DE279F00EB88FE /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				AA137BC021DA9FD4005A9FCB /* coin.png */,
+				AA137BC621DAA40D005A9FCB /* coin2.png */,
+				AA137BC221DAA40C005A9FCB /* coin3.png */,
+				AA137BC421DAA40C005A9FCB /* coin4.png */,
+				AA137BC821DAA40D005A9FCB /* coin5.png */,
+				AA137BC521DAA40D005A9FCB /* coin6.png */,
+				AA137BC721DAA40D005A9FCB /* coin7.png */,
+				AA137BC321DAA40C005A9FCB /* coin8.png */,
+			);
+			path = Objects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,6 +407,7 @@
 				AA973FDF21A46EA300D3DC81 /* f9.png in Resources */,
 				AA137BCF21DAA40D005A9FCB /* coin5.png in Resources */,
 				AA9532F821DBB0200083E7A7 /* deadFluvio.png in Resources */,
+				AA284ADD21DE189F00EB88FE /* frontFluvio.png in Resources */,
 				AAAB3B4721A7274A00B7F11A /* b2.png in Resources */,
 				AA137BCC21DAA40D005A9FCB /* coin6.png in Resources */,
 				AAA285B321D7B726003A9767 /* menu.png in Resources */,
@@ -340,17 +418,23 @@
 				AA137BCA21DAA40D005A9FCB /* coin8.png in Resources */,
 				AA973FE321A46EA300D3DC81 /* f10.png in Resources */,
 				AA9532FA21DBDB070083E7A7 /* mainTheme.mp3 in Resources */,
+				AA284AE621DE274900EB88FE /* hit.mp3 in Resources */,
 				AAAB3B4821A7274A00B7F11A /* b1.png in Resources */,
 				AA973FE221A46EA300D3DC81 /* f5.png in Resources */,
 				AA137BCD21DAA40D005A9FCB /* coin2.png in Resources */,
+				AA284AED21DE2C6F00EB88FE /* menuBackground.png in Resources */,
 				AA973FDA21A46EA300D3DC81 /* f2.png in Resources */,
+				AA284AE021DE1C9400EB88FE /* logo.png in Resources */,
+				AA284AE121DE1C9400EB88FE /* play.png in Resources */,
 				AA973FE121A46EA300D3DC81 /* f8.png in Resources */,
 				AAAB3B4921A7274A00B7F11A /* b3.png in Resources */,
 				AA137BC921DAA40D005A9FCB /* coin3.png in Resources */,
 				AA973FDD21A46EA300D3DC81 /* f4.png in Resources */,
 				AA147CEA2194464400F3D810 /* LaunchScreen.storyboard in Resources */,
+				AA284AF021DE2FD400EB88FE /* menuMusic.mp3 in Resources */,
 				AA973FE021A46EA300D3DC81 /* f6.png in Resources */,
 				AA9532FC21DBDFC50083E7A7 /* coin.mp3 in Resources */,
+				AA284AEE21DE2C6F00EB88FE /* frontbat.png in Resources */,
 				AA973FDE21A46EA300D3DC81 /* f7.png in Resources */,
 				AAE48E892198AA4900C2F4BC /* field.png in Resources */,
 				AA147CE72194464400F3D810 /* Assets.xcassets in Resources */,
