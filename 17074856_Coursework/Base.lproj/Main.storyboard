@@ -21,6 +21,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1773" height="414"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backgroundL2.png" translatesAutoresizingMaskIntoConstraints="NO" id="wNM-1a-Xub">
+                                <rect key="frame" x="0.0" y="-7" width="1773" height="421"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fog.png" translatesAutoresizingMaskIntoConstraints="NO" id="jdz-ur-sJX">
                                 <rect key="frame" x="89" y="44" width="614" height="327"/>
                                 <autoresizingMask key="autoresizingMask"/>
@@ -29,20 +33,40 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1773" height="254"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="upL2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Gb7-Nk-lWN">
+                                <rect key="frame" x="0.0" y="-1" width="1773" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="field.png" translatesAutoresizingMaskIntoConstraints="NO" id="3h5-wn-VLr">
                                 <rect key="frame" x="0.0" y="225" width="1773" height="189"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fieldL2.png" translatesAutoresizingMaskIntoConstraints="NO" id="5je-Ek-I3q">
+                                <rect key="frame" x="0.0" y="190" width="1773" height="230"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="rocks.png" translatesAutoresizingMaskIntoConstraints="NO" id="qhs-5P-nQv">
                                 <rect key="frame" x="1772" y="0.0" width="1773" height="414"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backgroundL2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Y3e-dU-vZU">
+                                <rect key="frame" x="1772" y="-7" width="1773" height="421"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="up.png" translatesAutoresizingMaskIntoConstraints="NO" id="4lO-Bn-cBf">
                                 <rect key="frame" x="1772" y="0.0" width="1773" height="254"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="upL2.png" translatesAutoresizingMaskIntoConstraints="NO" id="46b-Zc-CGF">
+                                <rect key="frame" x="1772" y="-1" width="1773" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="field.png" translatesAutoresizingMaskIntoConstraints="NO" id="Sxi-IJ-YJq">
                                 <rect key="frame" x="1772" y="225" width="1773" height="189"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fieldL2.png" translatesAutoresizingMaskIntoConstraints="NO" id="HyP-7G-WcG">
+                                <rect key="frame" x="1772" y="190" width="1773" height="230"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </imageView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="f1.png" translatesAutoresizingMaskIntoConstraints="NO" id="x3Y-Fs-DYf" customClass="DraggedImageView" customModule="_7074856_Coursework" customModuleProvider="target">
@@ -63,33 +87,6 @@
                                 <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gameover.png" translatesAutoresizingMaskIntoConstraints="NO" id="iu7-AB-MB2">
-                                <rect key="frame" x="-79" y="-7" width="869" height="458"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81i-Rl-5Wa">
-                                <rect key="frame" x="433" y="147" width="202" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V4c-KE-mij">
-                                <rect key="frame" x="538" y="224" width="131" height="59"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="menu.png"/>
-                                <connections>
-                                    <action selector="menuButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yO7-ah-5Yr"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQH-O8-WXm">
-                                <rect key="frame" x="347" y="224" width="130" height="59"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="replay.png"/>
-                                <connections>
-                                    <action selector="replayButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5V7-VN-lyw"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="menuBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="pPN-yB-pRv" userLabel="Menu">
                                 <rect key="frame" x="-9" y="-7" width="755" height="433"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -114,6 +111,41 @@
                                 <rect key="frame" x="428" y="271" width="362" height="193"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gameover.png" translatesAutoresizingMaskIntoConstraints="NO" id="iu7-AB-MB2">
+                                <rect key="frame" x="-79" y="-7" width="869" height="458"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81i-Rl-5Wa">
+                                <rect key="frame" x="433" y="147" width="202" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQH-O8-WXm">
+                                <rect key="frame" x="347" y="224" width="130" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="replay.png"/>
+                                <connections>
+                                    <action selector="replayButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5V7-VN-lyw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O0j-gI-eZz">
+                                <rect key="frame" x="544" y="224" width="130" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="next.png"/>
+                                <connections>
+                                    <action selector="nextButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rnt-5d-Sx9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V4c-KE-mij">
+                                <rect key="frame" x="443" y="312" width="131" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="menu.png"/>
+                                <connections>
+                                    <action selector="menuButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yO7-ah-5Yr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -121,8 +153,12 @@
                     <connections>
                         <outlet property="background" destination="INg-Vg-iH6" id="lg1-MP-YW1"/>
                         <outlet property="background2" destination="qhs-5P-nQv" id="vcr-xa-wm5"/>
+                        <outlet property="background2Level2" destination="Y3e-dU-vZU" id="fvn-Z1-Wzt"/>
+                        <outlet property="backgroundLevel2" destination="wNM-1a-Xub" id="RFZ-as-Ecb"/>
                         <outlet property="field" destination="3h5-wn-VLr" id="DMO-P7-xeg"/>
                         <outlet property="field2" destination="Sxi-IJ-YJq" id="Nme-qX-CNC"/>
+                        <outlet property="field2Level2" destination="HyP-7G-WcG" id="t9r-hD-x1z"/>
+                        <outlet property="fieldLevel2" destination="5je-Ek-I3q" id="u42-Rw-Jrl"/>
                         <outlet property="finalScoreLabel" destination="81i-Rl-5Wa" id="4SM-V0-iIr"/>
                         <outlet property="fog" destination="jdz-ur-sJX" id="Hc7-eg-mFe"/>
                         <outlet property="gameOverScreen" destination="iu7-AB-MB2" id="VAG-Fh-xtQ"/>
@@ -132,11 +168,14 @@
                         <outlet property="menuFluvio" destination="G5k-nJ-bj6" id="ukT-ct-umI"/>
                         <outlet property="menuLogo" destination="97r-4m-y1k" id="ICX-YQ-W1r"/>
                         <outlet property="menuScreen" destination="pPN-yB-pRv" id="9do-67-RmP"/>
+                        <outlet property="nextBut" destination="O0j-gI-eZz" id="UyX-DS-6YB"/>
                         <outlet property="playBut" destination="jKi-39-33B" id="9f6-l0-jUx"/>
                         <outlet property="replayBut" destination="jQH-O8-WXm" id="xTh-74-VAg"/>
                         <outlet property="scoreLabel" destination="3p1-P6-99n" id="DrW-NI-H5O"/>
                         <outlet property="up" destination="tDV-I2-M8d" id="ASz-hC-kpw"/>
                         <outlet property="up2" destination="4lO-Bn-cBf" id="pEi-kg-vwV"/>
+                        <outlet property="up2Level2" destination="46b-Zc-CGF" id="NOe-1j-hOm"/>
+                        <outlet property="upLevel2" destination="Gb7-Nk-lWN" id="bhG-VA-sb7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -145,8 +184,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="backgroundL2.png" width="4201" height="982"/>
         <image name="f1.png" width="502" height="716"/>
         <image name="field.png" width="4201" height="447"/>
+        <image name="fieldL2.png" width="4201" height="534"/>
         <image name="fog.png" width="400" height="225"/>
         <image name="frontFluvio.png" width="837" height="884"/>
         <image name="frontbat.png" width="545" height="368"/>
@@ -154,9 +195,11 @@
         <image name="logo.png" width="409" height="51"/>
         <image name="menu.png" width="152" height="69"/>
         <image name="menuBackground.png" width="4201" height="981"/>
+        <image name="next.png" width="152" height="69"/>
         <image name="play.png" width="156" height="69"/>
         <image name="replay.png" width="152" height="69"/>
         <image name="rocks.png" width="4200" height="980"/>
         <image name="up.png" width="4201" height="603"/>
+        <image name="upL2.png" width="8751" height="319"/>
     </resources>
 </document>

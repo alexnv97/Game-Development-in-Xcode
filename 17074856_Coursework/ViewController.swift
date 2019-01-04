@@ -15,19 +15,39 @@ protocol subViewDelegate {
 
 class ViewController: UIViewController, subViewDelegate {
     
-   
+
+    @IBAction func nextButton(_ sender: UIButton) {
+        level += 1
+        gameFinished = false
+        
+        gameFinished = false
+        self.main.isHidden = false
+    
+        self.backgroundLevel2.isHidden = false
+        self.background2Level2.isHidden = false
+        self.fieldLevel2.isHidden = false
+        self.field2Level2.isHidden = false
+        self.upLevel2.isHidden = false
+        self.up2Level2.isHidden = false
+        
+        play()
+        
+    }
+    
     @IBAction func playButton(_ sender: UIButton) {
+        
         menuBat.isHidden = true
         menuFluvio.isHidden = true
         menuLogo.isHidden = true
         menuScreen.isHidden = true
         playBut.isHidden = true
-        
-        
+    
         menuMusic?.stop()
         
         score = 0
         gameFinished = false
+        level = 1
+        
         self.main.isHidden = false
         self.background.isHidden = false
         self.background2.isHidden = false
@@ -40,28 +60,41 @@ class ViewController: UIViewController, subViewDelegate {
     }
    
     @IBAction func menuButton(_ sender: Any) {
+        
         replayBut.isHidden = true
         gameOverScreen.isHidden = true
         finalScoreLabel.isHidden = true
         menuBut.isHidden = true
-        
+        nextBut.isHidden = true
         
         displayMenu()
         
     }
     
     @IBAction func replayButton(_ sender: UIButton) {
-        //replayBut.isHidden = true
-        //gameOverScreen.isHidden = true
+        
         score = 0
         gameFinished = false
         self.main.isHidden = false
-        self.background.isHidden = false
-        self.background2.isHidden = false
-        self.field.isHidden = false
-        self.field2.isHidden = false
-        self.up.isHidden = false
-        self.up2.isHidden = false
+        
+        if (level == 1){
+            self.background.isHidden = false
+            self.background2.isHidden = false
+            self.field.isHidden = false
+            self.field2.isHidden = false
+            self.up.isHidden = false
+            self.up2.isHidden = false
+        }
+            
+        else{
+            self.backgroundLevel2.isHidden = false
+            self.background2Level2.isHidden = false
+            self.fieldLevel2.isHidden = false
+            self.field2Level2.isHidden = false
+            self.upLevel2.isHidden = false
+            self.up2Level2.isHidden = false
+        }
+        
         play()
         
     }
@@ -76,6 +109,15 @@ class ViewController: UIViewController, subViewDelegate {
     @IBOutlet weak var background: UIImageView!
     @IBOutlet weak var background2: UIImageView!
     
+    
+    //LEVEL 2
+    @IBOutlet weak var up2Level2: UIImageView!
+    @IBOutlet weak var upLevel2: UIImageView!
+    @IBOutlet weak var field2Level2: UIImageView!
+    @IBOutlet weak var fieldLevel2: UIImageView!
+    @IBOutlet weak var background2Level2: UIImageView!
+    @IBOutlet weak var backgroundLevel2: UIImageView!
+    
     //MENU SCREEN
     @IBOutlet weak var menuScreen: UIImageView!
     @IBOutlet weak var menuFluvio: UIImageView!
@@ -87,6 +129,7 @@ class ViewController: UIViewController, subViewDelegate {
     @IBOutlet weak var gameOverScreen: UIImageView!
     @IBOutlet weak var menuBut: UIButton!
     @IBOutlet weak var replayBut: UIButton!
+    @IBOutlet weak var nextBut: UIButton!
     @IBOutlet weak var finalScoreLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     
@@ -95,6 +138,7 @@ class ViewController: UIViewController, subViewDelegate {
     var bats: [UIImageView] = []
     var coins: [UIImageView] = []
     var gameFinished: Bool = false
+    var level: Int = 2
     
     //SOUNDS
     var ambientMusic: AVAudioPlayer?
@@ -116,19 +160,19 @@ class ViewController: UIViewController, subViewDelegate {
     }
     
     //Animates the background
-    func moveBackground(){
+    func moveBackground(background: UIImageView, background2: UIImageView){
         let animateB = UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 60, delay: 0, options: .curveLinear, animations: {
-            self.background2.center.x -= (self.background2.bounds.width * 2)
+            background2.center.x -= (background2.bounds.width * 2)
             }, completion: nil)
         
         let animateB2 = UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 30, delay: 0, options: .curveLinear, animations: {
-            self.background.center.x -= self.background.bounds.width
+            background.center.x -= background.bounds.width
         }, completion: { _ in
             
-            self.background.frame.origin.x = 1771
+            background.frame.origin.x = 1771
             
             UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 30, delay: 0, options: .curveLinear, animations:{
-                self.background.center.x -= self.background.bounds.width
+                background.center.x -= background.bounds.width
             }, completion: nil)
         })
         
@@ -139,29 +183,29 @@ class ViewController: UIViewController, subViewDelegate {
         DispatchQueue.main.asyncAfter(deadline: timer){
             animateB2.stopAnimation(true)
             animateB.stopAnimation(true)
-            self.background.frame.origin.x = 0
-            self.background2.frame.origin.x = 1771
+            background.frame.origin.x = 0
+            background2.frame.origin.x = 1771
         }
     }
     
     //Animates the foreground
-    func moveForeground(){
+    func moveForeground(field: UIImageView, field2: UIImageView, up: UIImageView, up2: UIImageView){
         
         let animateF = UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 50, delay: 0, options: [.curveLinear], animations: {
-            self.field2.center.x -= (self.field2.bounds.width * 2)
-            self.up2.center.x -= (self.up2.bounds.width * 2)
+            field2.center.x -= (field2.bounds.width * 2)
+            up2.center.x -= (up2.bounds.width * 2)
         }, completion: nil)
         
         let animateF2 = UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 25, delay: 0, options: [.curveLinear], animations: {
-            self.field.center.x -= self.field.bounds.width
-            self.up.center.x -= self.up.bounds.width
+            field.center.x -= field.bounds.width
+            up.center.x -= up.bounds.width
         }, completion: { _ in
-            self.up.frame.origin.x = 1771
-            self.field.frame.origin.x = 1771
+            up.frame.origin.x = 1771
+            field.frame.origin.x = 1771
             
             UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 25, delay: 0, options: .curveLinear, animations:{
-                self.field.center.x -= self.field.bounds.width
-                self.up.center.x -= self.up.bounds.width
+                field.center.x -= field.bounds.width
+                up.center.x -= up.bounds.width
             }, completion: nil)
         })
         
@@ -172,10 +216,10 @@ class ViewController: UIViewController, subViewDelegate {
         DispatchQueue.main.asyncAfter(deadline: timer){
             animateF.stopAnimation(true)
             animateF2.stopAnimation(true)
-            self.up.frame.origin.x = 0
-            self.up2.frame.origin.x = 1771
-            self.field.frame.origin.x = 0
-            self.field2.frame.origin.x = 1771
+            up.frame.origin.x = 0
+            up2.frame.origin.x = 1771
+            field.frame.origin.x = 0
+            field2.frame.origin.x = 1771
         }
     }
     
@@ -308,6 +352,28 @@ class ViewController: UIViewController, subViewDelegate {
         scoreLabel.text = String(score)
     }
     
+    func playLevel1(){
+        moveBackground(background: self.background, background2: self.background2)
+        moveForeground(field: self.field, field2: self.field2, up: self.up, up2: self.up2)
+        self.backgroundLevel2.isHidden = true
+        self.background2Level2.isHidden = true
+        self.fieldLevel2.isHidden = true
+        self.field2Level2.isHidden = true
+        self.upLevel2.isHidden = true
+        self.up2Level2.isHidden = true
+    }
+    
+    func playLevel2(){
+        moveBackground(background: self.backgroundLevel2, background2: self.background2Level2)
+        moveForeground(field: self.fieldLevel2, field2: self.field2Level2, up: self.upLevel2, up2: self.up2Level2)
+        self.background.isHidden = true
+        self.background2.isHidden = true
+        self.field.isHidden = true
+        self.field2.isHidden = true
+        self.up.isHidden = true
+        self.up2.isHidden = true
+    }
+    
     //Main function of the game that keeps track of it
     func play(){
         
@@ -324,14 +390,22 @@ class ViewController: UIViewController, subViewDelegate {
         gameOverScreen.isHidden = true
         replayBut.isHidden = true
         menuBut.isHidden = true
+        nextBut.isHidden = true
         main.myDelegate = self
         
-        moveBackground()
-        moveForeground()
-        moveWeather()
         
         main.frame.origin.x = 50
         main.frame.origin.y = 50
+        
+        if (level == 1){
+            playLevel1()
+            
+        }
+        else{
+            playLevel2()
+        }
+        
+        moveWeather()
         
         finalScoreLabel.isHidden = true
         scoreLabel.text = String(score)
@@ -448,15 +522,33 @@ class ViewController: UIViewController, subViewDelegate {
         self.replayBut.isHidden = false
         self.gameOverScreen.isHidden = false
         self.menuBut.isHidden = false
+        if (level == 1){
+            self.nextBut.isHidden = false
+            self.view.bringSubviewToFront(self.nextBut)
+            
+            self.background.isHidden = true
+            self.background2.isHidden = true
+            self.field.isHidden = true
+            self.field2.isHidden = true
+            self.up.isHidden = true
+            self.up2.isHidden = true
+        }
+        else{
+            self.menuBut.frame.origin.x = 544
+            self.menuBut.frame.origin.y = 224
+            
+            self.backgroundLevel2.isHidden = true
+            self.background2Level2.isHidden = true
+            self.fieldLevel2.isHidden = true
+            self.field2Level2.isHidden = true
+            self.upLevel2.isHidden = true
+            self.up2Level2.isHidden = true
+        }
+        
         self.view.bringSubviewToFront(self.replayBut)
         self.view.bringSubviewToFront(self.menuBut)
         
-        self.background.isHidden = true
-        self.background2.isHidden = true
-        self.field.isHidden = true
-        self.field2.isHidden = true
-        self.up.isHidden = true
-        self.up2.isHidden = true
+        
     }
     
     //Shows the menu screen
