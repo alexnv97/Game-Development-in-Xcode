@@ -136,6 +136,7 @@ class ViewController: UIViewController, subViewDelegate {
     //GLOBAL VARIABLES
     var score:Int = 0
     var bats: [UIImageView] = []
+    var monsters: [UIImageView] = []
     var coins: [UIImageView] = []
     var gameFinished: Bool = false
     var level: Int = 2
@@ -241,7 +242,7 @@ class ViewController: UIViewController, subViewDelegate {
         self.view.addSubview(batView)
 
         dynamicItemBehaviour.addItem(batView)
-        dynamicItemBehaviour.addLinearVelocity(CGPoint(x: -110, y: 0), for: batView)
+        dynamicItemBehaviour.addLinearVelocity(CGPoint(x: -200, y: 0), for: batView)
         dynamicAnimator.addBehavior(dynamicItemBehaviour)
         
         collisionBehaviour.addItem(batView)
@@ -251,18 +252,53 @@ class ViewController: UIViewController, subViewDelegate {
         
     }
     
+    func createMonster(){
+        let monsterView = UIImageView(image:nil)
+        var monsterArray: [UIImage]!
+        
+        monsterArray = [UIImage(named: "m1.png")!,
+                        UIImage(named: "m2.png")!,
+                        UIImage(named: "m3.png")!,
+                        UIImage(named: "m4.png")!,
+                        UIImage(named: "m5.png")!,
+                        UIImage(named: "m4.png")!,
+                        UIImage(named: "m3.png")!,
+                        UIImage(named: "m2.png")!]
+        
+        monsterView.image = UIImage.animatedImage(with: monsterArray, duration: 1.5)
+        
+        let random = CGFloat.random(in: 0...self.view.frame.height-60)
+        monsterView.frame = CGRect(x: UIScreen.main.bounds.width, y: random, width: 80, height: 80)
+        self.view.addSubview(monsterView)
+        
+        dynamicItemBehaviour.addItem(monsterView)
+        dynamicItemBehaviour.addLinearVelocity(CGPoint(x: -250, y: 0), for: monsterView)
+        dynamicAnimator.addBehavior(dynamicItemBehaviour)
+        
+        collisionBehaviour.addItem(monsterView)
+        dynamicAnimator.addBehavior(collisionBehaviour)
+        
+        monsters.append(monsterView)
+        
+    }
+    
     //Creates in random positions and at random times the enemies
     func createEnemies(){
         var time = 0
         var appear = 0
         var i = 0
         while (i < 10){
-            appear = Int(CGFloat.random(in: 1 ... 6))
+            appear = Int.random(in: 1 ... 6)
             time = time + appear
             let timer = DispatchTime.now() + .seconds(time)
             DispatchQueue.main.asyncAfter(deadline: timer){
                 if (!self.gameFinished){
-                    self.createBat()
+                    if (self.level == 1){
+                        self.createBat()
+                    }
+                    else{
+                        self.createMonster()
+                    }
                 }
             }
             i = i + 1
@@ -290,7 +326,7 @@ class ViewController: UIViewController, subViewDelegate {
         coinView.frame = CGRect(x: UIScreen.main.bounds.width, y:random, width: 30, height: 40)
         self.view.addSubview(coinView)
         
-        let velocity = CGFloat.random(in: -70 ... -30)
+        let velocity = CGFloat.random(in: -150 ... -100)
         dynamicItemBehaviour.addItem(coinView)
         dynamicItemBehaviour.addLinearVelocity(CGPoint(x: velocity, y: 0), for: coinView)
         dynamicAnimator.addBehavior(dynamicItemBehaviour)
@@ -325,14 +361,26 @@ class ViewController: UIViewController, subViewDelegate {
     
     //Deletes all the enemies from the view
     func deleteEnemies(){
-        let tam = bats.count
-        var i = 0
-        while (i < tam){
-            bats[i].frame = .zero
-            bats[i].removeFromSuperview()
-            i += 1
+        if (level == 1){
+            var i = 0
+            while (i < bats.count){
+                bats[i].frame = .zero
+                bats[i].removeFromSuperview()
+                i += 1
+            }
+            
+        }
+        else{
+            var i = 0
+            while (i < monsters.count){
+                monsters[i].frame = .zero
+                monsters[i].removeFromSuperview()
+                i += 1
+                
+            }
         }
         bats.removeAll()
+        monsters.removeAll()
     }
     
     //Deletes all the coins from the view
@@ -450,32 +498,65 @@ class ViewController: UIViewController, subViewDelegate {
         
         collisionBehaviour.action = {
             var i = 0
-            while (i < self.bats.count){
-                if (self.bats[i].frame.intersects(self.main.frame)){
-                    self.main.image = UIImage(named: "deadFluvio.png")
-                    let path = Bundle.main.path(forResource: "hit.mp3", ofType:nil)!
-                    let url = URL(fileURLWithPath: path)
-                    do {
-                        self.hitSound = try AVAudioPlayer(contentsOf: url)
-                        self.hitSound?.play()
-                    } catch {
-                        // couldn't load file :(
+            
+            if (self.level == 1){
+                while (i < self.bats.count){
+                    if (self.bats[i].frame.intersects(self.main.frame)){
+                        self.main.image = UIImage(named: "deadFluvio.png")
+                        let path = Bundle.main.path(forResource: "hit.mp3", ofType:nil)!
+                        let url = URL(fileURLWithPath: path)
+                        do {
+                            self.hitSound = try AVAudioPlayer(contentsOf: url)
+                            self.hitSound?.play()
+                        } catch {
+                            // couldn't load file :(
+                        }
+                        
+                        let timer = DispatchTime.now() + 1
+                        DispatchQueue.main.asyncAfter(deadline: timer){
+                            self.main.image = UIImage.animatedImage(with: imageArray, duration: 1)
+                        }
+                        self.collisionBehaviour.removeItem(self.bats[i])
+                        self.bats[i].frame = .zero
+                        self.bats[i].removeFromSuperview()
+                        self.bats.remove(at: i)
+                        if (self.score > 0){
+                            self.score -= 10
+                        }
+                        self.updateLabel()
                     }
-                    
-                    let timer = DispatchTime.now() + 1
-                    DispatchQueue.main.asyncAfter(deadline: timer){
-                        self.main.image = UIImage.animatedImage(with: imageArray, duration: 1)
-                    }
-                    self.collisionBehaviour.removeItem(self.bats[i])
-                    self.bats[i].frame = .zero
-                    self.bats[i].removeFromSuperview()
-                    self.bats.remove(at: i)
-                    if (self.score > 0){
-                        self.score -= 10
-                    }
-                    self.updateLabel()
+                    i += 1
                 }
-                i += 1
+            }
+            
+            else{
+                while (i < self.monsters.count){
+                    if (self.monsters[i].frame.intersects(self.main.frame)){
+                        self.main.image = UIImage(named: "deadFluvio.png")
+                        let path = Bundle.main.path(forResource: "hit.mp3", ofType:nil)!
+                        let url = URL(fileURLWithPath: path)
+                        do {
+                            self.hitSound = try AVAudioPlayer(contentsOf: url)
+                            self.hitSound?.play()
+                        } catch {
+                            // couldn't load file :(
+                        }
+                        
+                        let timer = DispatchTime.now() + 1
+                        DispatchQueue.main.asyncAfter(deadline: timer){
+                            self.main.image = UIImage.animatedImage(with: imageArray, duration: 1)
+                        }
+                        self.collisionBehaviour.removeItem(self.monsters[i])
+                        self.monsters[i].frame = .zero
+                        self.monsters[i].removeFromSuperview()
+                        self.monsters.remove(at: i)
+                        if (self.score > 0){
+                            self.score -= 20
+                        }
+                        self.updateLabel()
+                    }
+                    i += 1
+                }
             }
             
         }
