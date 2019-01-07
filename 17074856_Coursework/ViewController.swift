@@ -16,51 +16,48 @@ protocol subViewDelegate {
 class ViewController: UIViewController, subViewDelegate {
     
 
+    //Behavior of the button next: should go to next level
     @IBAction func nextButton(_ sender: UIButton) {
         level += 1
         gameFinished = false
-        
-        gameFinished = false
+        seconds = 20
         self.main.isHidden = false
-    
-        self.backgroundLevel2.isHidden = false
-        self.background2Level2.isHidden = false
-        self.fieldLevel2.isHidden = false
-        self.field2Level2.isHidden = false
-        self.upLevel2.isHidden = false
-        self.up2Level2.isHidden = false
+        
+        //Show the level 2 scenario
+        hideLevel2(hide: false)
         
         play()
         
     }
     
+    //Behavior of the button play: should go to level 1
     @IBAction func playButton(_ sender: UIButton) {
         
+        //Hide all the menu scenario
         menuBat.isHidden = true
         menuFluvio.isHidden = true
         menuLogo.isHidden = true
         menuScreen.isHidden = true
         playBut.isHidden = true
-    
-        menuMusic?.stop()
         
+        //Initialize components
         score = 0
+        seconds = 20
         gameFinished = false
         level = 1
         
         self.main.isHidden = false
-        self.background.isHidden = false
-        self.background2.isHidden = false
-        self.field.isHidden = false
-        self.field2.isHidden = false
-        self.up.isHidden = false
-        self.up2.isHidden = false
+        
+        //Show the level 1 scenario
+        hideLevel1(hide: false)
         
         play()
     }
    
-    @IBAction func menuButton(_ sender: Any) {
+    //Behavior of the button menu: should go to the principal menu
+    @IBAction func menuButton(_ sender: UIButton) {
         
+        //Hide the game over scenario
         replayBut.isHidden = true
         gameOverScreen.isHidden = true
         finalScoreLabel.isHidden = true
@@ -71,30 +68,20 @@ class ViewController: UIViewController, subViewDelegate {
         
     }
     
+    //Behavior of the button replay: should replay the game (always goes to level 1)
     @IBAction func replayButton(_ sender: UIButton) {
         
+        //Restart all the components
         score = 0
+        seconds = 20
+        level = 1
         gameFinished = false
+        
         self.main.isHidden = false
         
-        if (level == 1){
-            self.background.isHidden = false
-            self.background2.isHidden = false
-            self.field.isHidden = false
-            self.field2.isHidden = false
-            self.up.isHidden = false
-            self.up2.isHidden = false
-        }
-            
-        else{
-            self.backgroundLevel2.isHidden = false
-            self.background2Level2.isHidden = false
-            self.fieldLevel2.isHidden = false
-            self.field2Level2.isHidden = false
-            self.upLevel2.isHidden = false
-            self.up2Level2.isHidden = false
-        }
-        
+        //Show the level 1 scenario
+        hideLevel1(hide: false)
+       
         play()
         
     }
@@ -108,6 +95,8 @@ class ViewController: UIViewController, subViewDelegate {
     @IBOutlet weak var up: UIImageView!
     @IBOutlet weak var background: UIImageView!
     @IBOutlet weak var background2: UIImageView!
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var timerLabel: UILabel!
     
     
     //LEVEL 2
@@ -131,10 +120,11 @@ class ViewController: UIViewController, subViewDelegate {
     @IBOutlet weak var replayBut: UIButton!
     @IBOutlet weak var nextBut: UIButton!
     @IBOutlet weak var finalScoreLabel: UILabel!
-    @IBOutlet weak var scoreLabel: UILabel!
     
     //GLOBAL VARIABLES
     var score:Int = 0
+    var seconds:Int = 20
+    var timer = Timer()
     var bats: [UIImageView] = []
     var monsters: [UIImageView] = []
     var coins: [UIImageView] = []
@@ -143,17 +133,16 @@ class ViewController: UIViewController, subViewDelegate {
     
     //SOUNDS
     var ambientMusic: AVAudioPlayer?
-    var menuMusic: AVAudioPlayer?
     var coinSound: AVAudioPlayer?
     var hitSound: AVAudioPlayer?
     
     //BEHAVIOURS
     var dynamicAnimator: UIDynamicAnimator!
     var dynamicItemBehaviour: UIDynamicItemBehavior!
-    var collisionBehaviour: UICollisionBehavior!
+    var enemiesCollision: UICollisionBehavior!
     var coinsCollision: UICollisionBehavior!
     
-    //Moves the weather of the background
+    //Moves the weather of the background (fog)
     func moveWeather(){
         UIView.animate(withDuration: 30, delay: 0, options: [ .repeat, .curveLinear], animations: {
             self.fog.center.x -= self.fog.bounds.width
@@ -225,9 +214,8 @@ class ViewController: UIViewController, subViewDelegate {
     }
     
     //Creates a new enemy of the type BAT
-    func createBat(){
+    @objc func createBat(){
         let batView = UIImageView(image: nil)
-        
         var batArray: [UIImage]!
         
         batArray = [UIImage(named: "b1.png")!,
@@ -235,18 +223,18 @@ class ViewController: UIViewController, subViewDelegate {
                     UIImage(named: "b3.png")!,
                     UIImage(named: "b2.png")!]
         
-        batView.image = UIImage.animatedImage(with: batArray, duration: 1)
+        batView.image = UIImage.animatedImage(with: batArray, duration: 0.6)
     
         let random = CGFloat.random(in: 0 ... self.view.frame.height-50)
-        batView.frame = CGRect(x: UIScreen.main.bounds.width, y:random, width: 60, height: 50)
+        batView.frame = CGRect(x: UIScreen.main.bounds.width, y:random, width: 70, height: 60)
         self.view.addSubview(batView)
 
         dynamicItemBehaviour.addItem(batView)
         dynamicItemBehaviour.addLinearVelocity(CGPoint(x: -200, y: 0), for: batView)
         dynamicAnimator.addBehavior(dynamicItemBehaviour)
         
-        collisionBehaviour.addItem(batView)
-        dynamicAnimator.addBehavior(collisionBehaviour)
+        enemiesCollision.addItem(batView)
+        dynamicAnimator.addBehavior(enemiesCollision)
         
         bats.append(batView)
         
@@ -267,7 +255,7 @@ class ViewController: UIViewController, subViewDelegate {
         
         monsterView.image = UIImage.animatedImage(with: monsterArray, duration: 1.5)
         
-        let random = CGFloat.random(in: 0...self.view.frame.height-60)
+        let random = CGFloat.random(in: 0...self.view.frame.height-80)
         monsterView.frame = CGRect(x: UIScreen.main.bounds.width, y: random, width: 80, height: 80)
         self.view.addSubview(monsterView)
         
@@ -275,8 +263,8 @@ class ViewController: UIViewController, subViewDelegate {
         dynamicItemBehaviour.addLinearVelocity(CGPoint(x: -250, y: 0), for: monsterView)
         dynamicAnimator.addBehavior(dynamicItemBehaviour)
         
-        collisionBehaviour.addItem(monsterView)
-        dynamicAnimator.addBehavior(collisionBehaviour)
+        enemiesCollision.addItem(monsterView)
+        dynamicAnimator.addBehavior(enemiesCollision)
         
         monsters.append(monsterView)
         
@@ -284,24 +272,27 @@ class ViewController: UIViewController, subViewDelegate {
     
     //Creates in random positions and at random times the enemies
     func createEnemies(){
-        var time = 0
-        var appear = 0
-        var i = 0
-        while (i < 10){
-            appear = Int.random(in: 1 ... 6)
-            time = time + appear
-            let timer = DispatchTime.now() + .seconds(time)
-            DispatchQueue.main.asyncAfter(deadline: timer){
-                if (!self.gameFinished){
-                    if (self.level == 1){
-                        self.createBat()
-                    }
-                    else{
-                        self.createMonster()
-                    }
+        
+        var appear = 0.0
+        
+        if (level == 1){
+            appear = Double.random(in: 1 ... 2)
+        }
+        else{
+            appear = Double.random(in: 0.5 ... 1.5)
+        }
+        let timer = DispatchTime.now() + Double(appear)
+        
+        DispatchQueue.main.asyncAfter(deadline: timer){
+            if (!self.gameFinished){
+                if (self.level == 1){
+                    self.createBat()
                 }
+                else{
+                    self.createMonster()
+                }
+                self.createEnemies()
             }
-            i = i + 1
         }
     }
     
@@ -330,11 +321,9 @@ class ViewController: UIViewController, subViewDelegate {
         dynamicItemBehaviour.addItem(coinView)
         dynamicItemBehaviour.addLinearVelocity(CGPoint(x: velocity, y: 0), for: coinView)
         dynamicAnimator.addBehavior(dynamicItemBehaviour)
-    
-        
         
         coinsCollision.addItem(coinView)
-        coinsCollision.collisionMode = .boundaries
+        //coinsCollision.collisionMode = .boundaries
         dynamicAnimator.addBehavior(coinsCollision)
         
         coins.append(coinView)
@@ -343,19 +332,13 @@ class ViewController: UIViewController, subViewDelegate {
     
     //Creates random coins throughout the view
     func createCoins(){
-        var time = 0
-        var appear = 0
-        var i = 0
-        while (i < 10){
-            appear = Int(CGFloat.random(in: 1 ... 5))
-            time = time + appear
-            let timer = DispatchTime.now() + .seconds(time)
-            DispatchQueue.main.asyncAfter(deadline: timer){
-                if (!self.gameFinished){
-                    self.createCoin()
-                }
+        let appear = Double.random(in: 1 ... 3)
+        let timer = DispatchTime.now() + Double(appear)
+        DispatchQueue.main.asyncAfter(deadline: timer){
+            if (!self.gameFinished){
+                self.createCoin()
+                self.createCoins()
             }
-            i = i + 1
         }
     }
     
@@ -400,45 +383,73 @@ class ViewController: UIViewController, subViewDelegate {
         scoreLabel.text = String(score)
     }
     
+    @objc func updateTimer(){
+        seconds -= 1
+        self.timerLabel.text = String(seconds)
+    }
+    
+    func runTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(updateTimer)), userInfo: nil, repeats: true)
+    }
+    
+    func hideLevel1(hide: Bool){
+        self.background.isHidden = hide
+        self.background2.isHidden = hide
+        self.field.isHidden = hide
+        self.field2.isHidden = hide
+        self.up.isHidden = hide
+        self.up2.isHidden = hide
+    }
+    
+    func hideLevel2(hide: Bool){
+        self.backgroundLevel2.isHidden = hide
+        self.background2Level2.isHidden = hide
+        self.fieldLevel2.isHidden = hide
+        self.field2Level2.isHidden = hide
+        self.upLevel2.isHidden = hide
+        self.up2Level2.isHidden = hide
+    }
+    
     func playLevel1(){
+        let path = Bundle.main.path(forResource: "mainTheme.mp3", ofType:nil)!
+        let url = URL(fileURLWithPath: path)
+        do {
+            ambientMusic = try AVAudioPlayer(contentsOf: url)
+            ambientMusic?.numberOfLoops = -1
+            ambientMusic?.play()
+        } catch {
+            // couldn't load file :(
+        }
         moveBackground(background: self.background, background2: self.background2)
         moveForeground(field: self.field, field2: self.field2, up: self.up, up2: self.up2)
-        self.backgroundLevel2.isHidden = true
-        self.background2Level2.isHidden = true
-        self.fieldLevel2.isHidden = true
-        self.field2Level2.isHidden = true
-        self.upLevel2.isHidden = true
-        self.up2Level2.isHidden = true
+        hideLevel2(hide: true)
     }
     
     func playLevel2(){
+        let path = Bundle.main.path(forResource: "level2music.mp3", ofType:nil)!
+        let url = URL(fileURLWithPath: path)
+        do {
+            ambientMusic = try AVAudioPlayer(contentsOf: url)
+            ambientMusic?.numberOfLoops = -1
+            ambientMusic?.play()
+        } catch {
+            // couldn't load file :(
+        }
         moveBackground(background: self.backgroundLevel2, background2: self.background2Level2)
         moveForeground(field: self.fieldLevel2, field2: self.field2Level2, up: self.upLevel2, up2: self.up2Level2)
-        self.background.isHidden = true
-        self.background2.isHidden = true
-        self.field.isHidden = true
-        self.field2.isHidden = true
-        self.up.isHidden = true
-        self.up2.isHidden = true
+        
+       hideLevel1(hide: true)
     }
     
     //Main function of the game that keeps track of it
     func play(){
         
-        
-        let path = Bundle.main.path(forResource: "mainTheme.mp3", ofType:nil)!
-        let url = URL(fileURLWithPath: path)
-        do {
-            ambientMusic = try AVAudioPlayer(contentsOf: url)
-            ambientMusic?.play()
-        } catch {
-            // couldn't load file :(
-        }
-        
         gameOverScreen.isHidden = true
         replayBut.isHidden = true
         menuBut.isHidden = true
         nextBut.isHidden = true
+        finalScoreLabel.isHidden = true
+        
         main.myDelegate = self
         
         
@@ -455,8 +466,9 @@ class ViewController: UIViewController, subViewDelegate {
         
         moveWeather()
         
-        finalScoreLabel.isHidden = true
         scoreLabel.text = String(score)
+        timerLabel.text = String(seconds)
+        runTimer()
         
         let when = DispatchTime.now() + 20
         DispatchQueue.main.asyncAfter(deadline: when) {
@@ -466,7 +478,7 @@ class ViewController: UIViewController, subViewDelegate {
         dynamicAnimator = UIDynamicAnimator(referenceView: self.view)
         dynamicItemBehaviour = UIDynamicItemBehavior(items: [])
         
-        collisionBehaviour = UICollisionBehavior(items: [])
+        enemiesCollision = UICollisionBehavior(items: [])
         coinsCollision = UICollisionBehavior(items: [])
         
         var imageArray: [UIImage]!
@@ -494,9 +506,9 @@ class ViewController: UIViewController, subViewDelegate {
         
         createEnemies()
         
-        collisionBehaviour.addBoundary(withIdentifier: "enemy" as NSCopying, for: UIBezierPath(rect:main.frame))
+        enemiesCollision.addBoundary(withIdentifier: "enemy" as NSCopying, for: UIBezierPath(rect:main.frame))
         
-        collisionBehaviour.action = {
+        enemiesCollision.action = {
             var i = 0
             
             if (self.level == 1){
@@ -516,7 +528,7 @@ class ViewController: UIViewController, subViewDelegate {
                         DispatchQueue.main.asyncAfter(deadline: timer){
                             self.main.image = UIImage.animatedImage(with: imageArray, duration: 1)
                         }
-                        self.collisionBehaviour.removeItem(self.bats[i])
+                        self.enemiesCollision.removeItem(self.bats[i])
                         self.bats[i].frame = .zero
                         self.bats[i].removeFromSuperview()
                         self.bats.remove(at: i)
@@ -546,7 +558,7 @@ class ViewController: UIViewController, subViewDelegate {
                         DispatchQueue.main.asyncAfter(deadline: timer){
                             self.main.image = UIImage.animatedImage(with: imageArray, duration: 1)
                         }
-                        self.collisionBehaviour.removeItem(self.monsters[i])
+                        self.enemiesCollision.removeItem(self.monsters[i])
                         self.monsters[i].frame = .zero
                         self.monsters[i].removeFromSuperview()
                         self.monsters.remove(at: i)
@@ -592,7 +604,15 @@ class ViewController: UIViewController, subViewDelegate {
     
     //Shows the game over screen
     func displayGameOver(){
-        self.ambientMusic?.stop()
+        let path = Bundle.main.path(forResource: "gameOvermusic.mp3", ofType:nil)!
+        let url = URL(fileURLWithPath: path)
+        do {
+            ambientMusic = try AVAudioPlayer(contentsOf: url)
+            ambientMusic?.numberOfLoops = -1
+            ambientMusic?.play()
+        } catch {
+            // couldn't load file :(
+        }
         self.view.bringSubviewToFront(self.finalScoreLabel)
         self.finalScoreLabel.text = "Score: " + String(self.score)
         self.finalScoreLabel.isHidden = false
@@ -603,27 +623,17 @@ class ViewController: UIViewController, subViewDelegate {
         self.replayBut.isHidden = false
         self.gameOverScreen.isHidden = false
         self.menuBut.isHidden = false
+        
+        self.timer.invalidate()
+        
         if (level == 1){
             self.nextBut.isHidden = false
             self.view.bringSubviewToFront(self.nextBut)
             
-            self.background.isHidden = true
-            self.background2.isHidden = true
-            self.field.isHidden = true
-            self.field2.isHidden = true
-            self.up.isHidden = true
-            self.up2.isHidden = true
+            hideLevel1(hide: true)
         }
         else{
-            self.menuBut.frame.origin.x = 544
-            self.menuBut.frame.origin.y = 224
-            
-            self.backgroundLevel2.isHidden = true
-            self.background2Level2.isHidden = true
-            self.fieldLevel2.isHidden = true
-            self.field2Level2.isHidden = true
-            self.upLevel2.isHidden = true
-            self.up2Level2.isHidden = true
+            hideLevel2(hide: true)
         }
         
         self.view.bringSubviewToFront(self.replayBut)
@@ -637,9 +647,9 @@ class ViewController: UIViewController, subViewDelegate {
         let path = Bundle.main.path(forResource: "menuMusic.mp3", ofType:nil)!
         let url = URL(fileURLWithPath: path)
         do {
-            menuMusic = try AVAudioPlayer(contentsOf: url)
-            menuMusic?.numberOfLoops = -1
-            menuMusic?.play()
+            ambientMusic = try AVAudioPlayer(contentsOf: url)
+            ambientMusic?.numberOfLoops = -1
+            ambientMusic?.play()
         } catch {
             // couldn't load file :(
         }
@@ -665,9 +675,9 @@ class ViewController: UIViewController, subViewDelegate {
     }
     
     func changeBoundaries() {
-        collisionBehaviour.removeAllBoundaries()
+        enemiesCollision.removeAllBoundaries()
         coinsCollision.removeAllBoundaries()
-        collisionBehaviour.addBoundary(withIdentifier: "enemy" as NSCopying, for: UIBezierPath(rect: main.frame))
+        enemiesCollision.addBoundary(withIdentifier: "enemy" as NSCopying, for: UIBezierPath(rect: main.frame))
         coinsCollision.addBoundary(withIdentifier: "coin" as NSCopying, for: UIBezierPath (rect: main.frame))
     }
 
