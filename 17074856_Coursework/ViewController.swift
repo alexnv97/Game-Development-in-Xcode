@@ -507,6 +507,8 @@ class ViewController: UIViewController, subViewDelegate {
         createEnemies()
         
         enemiesCollision.addBoundary(withIdentifier: "enemy" as NSCopying, for: UIBezierPath(rect:main.frame))
+        enemiesCollision.collisionMode = .boundaries
+        coinsCollision.collisionMode = .boundaries
         
         enemiesCollision.action = {
             var i = 0
