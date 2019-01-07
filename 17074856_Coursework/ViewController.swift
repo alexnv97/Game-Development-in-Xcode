@@ -564,8 +564,11 @@ class ViewController: UIViewController, subViewDelegate {
                         self.monsters[i].frame = .zero
                         self.monsters[i].removeFromSuperview()
                         self.monsters.remove(at: i)
-                        if (self.score > 0){
+                        if (self.score > 10){
                             self.score -= 20
+                        }
+                        else{
+                            self.score = 0
                         }
                         self.updateLabel()
                     }
