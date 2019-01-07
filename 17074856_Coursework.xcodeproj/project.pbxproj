@@ -199,21 +199,14 @@
 			children = (
 				AA147CDF2194464300F3D810 /* AppDelegate.swift */,
 				AA147CE12194464300F3D810 /* ViewController.swift */,
-				AA284AEB21DE2C6F00EB88FE /* menuBackground.png */,
-				AA284AF321DE3C0A00EB88FE /* backgroundL2.png */,
-				AA284AF721DE427B00EB88FE /* next.png */,
-				AA284AF221DE3C0A00EB88FE /* fieldL2.png */,
-				AA284AF121DE3C0A00EB88FE /* upL2.png */,
-				AA284AEC21DE2C6F00EB88FE /* frontbat.png */,
-				AA284ADE21DE1C9300EB88FE /* logo.png */,
-				AA284ADF21DE1C9300EB88FE /* play.png */,
-				AA284ADC21DE189F00EB88FE /* frontFluvio.png */,
+				AA749CD221E3B62F005B7FF3 /* Level 2 */,
+				AA749CD321E3B659005B7FF3 /* Menu */,
 				AA284AE321DE26C000EB88FE /* Game Over Screen */,
 				AA284AE421DE26E500EB88FE /* Sounds */,
 				AA284AEA21DE279F00EB88FE /* Objects */,
 				AA284AE821DE277300EB88FE /* Fluvio */,
 				AA284AE921DE279100EB88FE /* Enemies */,
-				AA284AE721DE275500EB88FE /* Stage */,
+				AA284AE721DE275500EB88FE /* Level 1 */,
 				AA973FE421A46F3D00D3DC81 /* DraggedImageView.swift */,
 				AA147CE32194464300F3D810 /* Main.storyboard */,
 				AA147CE62194464400F3D810 /* Assets.xcassets */,
@@ -246,6 +239,7 @@
 			children = (
 				AAA285B021D7B726003A9767 /* menu.png */,
 				AAA285AF21D7B726003A9767 /* gameover.png */,
+				AA284AF721DE427B00EB88FE /* next.png */,
 				AAA285AE21D7B726003A9767 /* replay.png */,
 			);
 			path = "Game Over Screen";
@@ -264,7 +258,7 @@
 			path = Sounds;
 			sourceTree = "<group>";
 		};
-		AA284AE721DE275500EB88FE /* Stage */ = {
+		AA284AE721DE275500EB88FE /* Level 1 */ = {
 			isa = PBXGroup;
 			children = (
 				AA973FCE21A46B0A00D3DC81 /* fog.png */,
@@ -272,7 +266,7 @@
 				AAE48E872198AA4900C2F4BC /* rocks.png */,
 				AAE48E852198AA4900C2F4BC /* up.png */,
 			);
-			path = Stage;
+			path = "Level 1";
 			sourceTree = "<group>";
 		};
 		AA284AE821DE277300EB88FE /* Fluvio */ = {
@@ -321,6 +315,28 @@
 				AA137BC321DAA40C005A9FCB /* coin8.png */,
 			);
 			path = Objects;
+			sourceTree = "<group>";
+		};
+		AA749CD221E3B62F005B7FF3 /* Level 2 */ = {
+			isa = PBXGroup;
+			children = (
+				AA284AF321DE3C0A00EB88FE /* backgroundL2.png */,
+				AA284AF221DE3C0A00EB88FE /* fieldL2.png */,
+				AA284AF121DE3C0A00EB88FE /* upL2.png */,
+			);
+			path = "Level 2";
+			sourceTree = "<group>";
+		};
+		AA749CD321E3B659005B7FF3 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				AA284ADE21DE1C9300EB88FE /* logo.png */,
+				AA284ADF21DE1C9300EB88FE /* play.png */,
+				AA284ADC21DE189F00EB88FE /* frontFluvio.png */,
+				AA284AEC21DE2C6F00EB88FE /* frontbat.png */,
+				AA284AEB21DE2C6F00EB88FE /* menuBackground.png */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
